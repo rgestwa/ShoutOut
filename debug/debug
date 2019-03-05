@@ -1,0 +1,9 @@
+/*
+function like_post($id){
+  if(isset($_POST['like'])){
+    $pdo = PDO();
+    $create_like_statement = $pdo->prepare('UPDATE `posts` SET `likes` = `likes` + 1 WHERE `id` = ?');
+    $create_like_statement->execute([$id]);
+  }
+}
+*/
