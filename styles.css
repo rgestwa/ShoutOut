@@ -75,7 +75,10 @@
 
 }
 
-
+.gauth_container{
+  padding: 5%;
+  margin:5%;
+}
 
 .contactCard{
 	margin: 10px;

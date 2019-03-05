@@ -152,7 +152,9 @@ include 'google/google_auth.php';
   </div>
 
   <div id="gauth_start" class="gauth_start" style="display:none;">
-    <h1>get started with gauth</h1>
+    <div class="gauth_container">
+      <h1>get started with gauth</h1>
+    </div>
   </div>
 
 </div>
