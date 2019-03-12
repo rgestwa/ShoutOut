@@ -5,6 +5,10 @@ include 'google/google_auth.php';
  ?>
 <html>
 <head>
+<meta property="og:title" content="SHOUTOut" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="http://localhost:8888/mockproject/home.php" />
+<meta property="og:image" content="http://ia.media-imdb.com/images/rock.jpg" />
 <title>ShoutOut Social</title>
 <style>
 <?php include('styles.css'); ?>
