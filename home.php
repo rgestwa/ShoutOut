@@ -9,6 +9,8 @@ include 'google/google_auth.php';
 <meta property="og:type" content="website" />
 <meta property="og:url" content="http://localhost:8888/mockproject/home.php" />
 <meta property="og:image" content="http://ia.media-imdb.com/images/rock.jpg" />
+<meta property="og:description" content="a description" />
+
 <title>ShoutOut Social</title>
 <style>
 <?php include('styles.css'); ?>
