@@ -1,9 +1,10 @@
 <?php
-// TODO: make a currently logged in as card
 // TODO: view post button on contact card
-// TODO: add foreign keys
 // TODO: search users functionality
 // TODO: admin can edit posts
+
+// TODO: essage for incorrect LOGIN
+// TODO: functionality to block user from directly accessing HOME if not logged in
 
 //manually sets error reporting on in ini get_included_files
 //remove for production!
@@ -153,7 +154,7 @@ function like(){
     $pdo = PDO();
     $add_like_statement = $pdo->prepare('INSERT INTO `likes` (post, employee) VALUES (?,?)');
     $add_like_statement->execute([$upost_id, $author]);
-    
+
   }
 
 }
