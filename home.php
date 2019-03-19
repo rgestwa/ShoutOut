@@ -88,7 +88,12 @@ include 'google/google_auth.php';
         <div class="postBody">
           <p><?php echo($s_post['body']); ?><p>
         </div>
-        <button class="inline btn">Likes: <?php echo($likes); ?></button>
+        <form id='like_form' method='post'>
+          <!-- a hidden input field to get a post variable representing our incrementing post id -->
+          <input type="hidden" name="postId" value="<?php echo $id; ?>">
+        <button class="addLike inline btn" type="like_submit" name="like_submit">Likes: <?php echo($likes); ?></button>
+        </form>
+        <?php like(); ?>
         <button class="showComment inline btn">Comment</button>
       </div>
     <?php
@@ -139,20 +144,20 @@ include 'google/google_auth.php';
   <!--- comment div --->
 
   <div class="column comments_view" id="comments_view" style="display:none;">
-    <div class="postCard">
+    <div class="postCard template">
       <div class="row">
         <div class="postcolumn">
           <img style="float:left; margin-left:5%;" src="assets/profpic.png">
         </div>
         <div class="postcolumn">
           <div class="postUserInfo">
-            <p><?php echo('@'.$s_post['user_name'].'('.$s_post['employee_id'].')'); ?><p>
-              <p><?php echo($s_post['post_time']); ?><p>
+            <p class="username"></p>
+              <p class="postTime"></p>
               </div>
         </div>
       </div>
       <div class="postBody">
-        <p>Its like -14 degrees...  <p>
+        <p></p>
       </div>
       <button class="inline btn">Likes: 14</button>
     </div>

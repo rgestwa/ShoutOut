@@ -144,3 +144,16 @@ function fetch_post(){
   $post_row = $fetch_post_statement->fetchall();
   return $post_row;
 }
+
+function like(){
+  if(isset($_POST['like_submit'])){
+    $author = $_SESSION['user_id'];
+    $upost_id = $_POST['postId'];
+
+    $pdo = PDO();
+    $add_like_statement = $pdo->prepare('INSERT INTO `likes` (post, employee) VALUES (?,?)');
+    $add_like_statement->execute([$upost_id, $author]);
+    
+  }
+
+}

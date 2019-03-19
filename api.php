@@ -40,6 +40,8 @@ switch($action){
 
   break;
 
+
+
   default:
   $json['error'] = 'Action "'.$action.'" does not exist';
   break;

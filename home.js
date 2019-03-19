@@ -21,11 +21,15 @@
     //   });
 
       var $posts = $('.posts .postCard');
+
+      var $comment_template = $('#comments_view .postCard.template').clone();
+
       $posts.each(function()
         {
         var $this = $(this);
         var post_id = parseInt($this.data('id'));
         var $comment_button = $('.showComment',$this);
+        var $like_button = $('.addLike', $this);
 
         $comment_button.on('click',function()
           {
@@ -35,6 +39,22 @@
             dataType: 'json',
             success: function(response){
               console.log(response);
+              $('#contact_view').hide();
+              var $comments_view = $('#comments_view');
+              $comments_view.html('');
+              $comments_view.slideDown();
+              for (var i = 0 ; i < response.comments.length ; ++i)
+                {
+                var current = response.comments[i];
+                console.log(current);
+                var $comment = $comment_template.clone();
+                $('.username',$comment).text('@'+current.user_name);
+                $('.postBody p',$comment).text(current.body);
+                $('.postTime', $comment).text(current.time);
+                $comments_view.append($comment);
+                }
+              //$('.comments_view .postBody').html(comment);
+
             },
             error: function(response){
               console.log(response);
