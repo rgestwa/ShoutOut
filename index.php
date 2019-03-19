@@ -142,7 +142,7 @@ register();
   <div class="inputHolder">
 <h1>SHOUTout</h1>
 <h5>For ConnectXYZ</h5>
-<form id='login' action="home.php" method='post'>
+<form id='login' method='post'>
 <input class='form-control pad' name='employee_id' type='text' placeholder="Employee Id">
 <input class='form-control pad' name='password' type='password' placeholder="Password">
 <input class='btn btn-lg btn-outline-danger btn-block pad' name='l_submit' type='submit'>
