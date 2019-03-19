@@ -1,7 +1,7 @@
 <?php
-session_start('app_session');
 include 'methods.php';
 include 'google/google_auth.php';
+
  ?>
 <html>
 <head>
@@ -17,7 +17,7 @@ include 'google/google_auth.php';
 </style>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 <script src="jquery-3.3.1.min.js"></script>
-
+<script src="home.js" type="text/javascript"></script>
 </head>
 <body>
 
@@ -57,7 +57,7 @@ include 'google/google_auth.php';
 
 <div class="row">
 
-  <div class="column" >
+  <div class="column posts" >
     <!--- CREATE POST --->
     <form action="" method="post">
       <input class="postInput inline" name="post_input" placeholder="Start typing...">
@@ -73,7 +73,7 @@ include 'google/google_auth.php';
         $id = $s_post['id'];
         $likes = $s_post['likes'];
     ?>
-      <div class="postCard">
+      <div class="postCard" data-id="<?php echo $id; ?>">
         <div class="row">
           <div class="postcolumn">
             <img style="float:left; margin-left:5%;" src="assets/profpic.png">
@@ -89,7 +89,7 @@ include 'google/google_auth.php';
           <p><?php echo($s_post['body']); ?><p>
         </div>
         <button class="inline btn">Likes: <?php echo($likes); ?></button>
-        <button id="showComment" class="inline btn">Comment</button>
+        <button class="showComment inline btn">Comment</button>
       </div>
     <?php
       }
@@ -137,6 +137,7 @@ include 'google/google_auth.php';
   </div>
 
   <!--- comment div --->
+
   <div class="column comments_view" id="comments_view" style="display:none;">
     <div class="postCard">
       <div class="row">
@@ -165,23 +166,6 @@ include 'google/google_auth.php';
 
 </div>
 
-<script>
-  $(document).ready(function(){
-    console.log("ready");
-    $("#showComment").click(function(){
-      console.log("click");
-      $("#comments_view").slideDown();
-      $("#contact_view").hide();
-      $("#gauth_start").hide();
-    });
-
-    $("#show_gauth").click(function(){
-      $("#gauth_start").slideDown();
-      $("#comments_view").hide();
-      $("#contact_view").hide();
-    });
-});
-</script>
 
 </body>
 </html>
