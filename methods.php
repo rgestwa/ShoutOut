@@ -18,7 +18,7 @@ date_default_timezone_set($timezone);
 function PDO(){
   $host = 'localhost';
   $port = 8889;
-  $database = 'shoutout';
+  $database = 'ShoutOut';
   $charset = 'utf8mb4';
 
   $DBusername = 'root';
