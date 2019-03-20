@@ -147,6 +147,18 @@ function fetch_post(){
   return $post_row;
 }
 
+function search(){
+  if(isset($_POST['search_posts'])){
+    $author = htmlspecialchars(mysql_real_escape_string($_POST['search_input']));
+
+    $pdo = PDO();
+    $search_post_statement = $pdo->prepare('SELECT `posts`.*, `users`.`employee_id`, `users`.`user_name` FROM `posts` LEFT JOIN `users` ON `posts`.`author_id` = `users`.`id` WHERE `user_name` = ? ORDER BY `post_time` DESC;');
+    $search_post_statement->execute([$author]);
+    $search_result = $fetch_post_statement->fetchall();
+    return $search_result;
+  }
+}
+
 function like(){
   if(isset($_POST['like_submit'])){
     $author = $_SESSION['user_id'];
