@@ -1,6 +1,6 @@
 <?php
 // TODO: view post button on contact card
-// TODO: search users functionality
+// TODO: search users functionality - ready to test
 // TODO: admin can edit posts
 
 // TODO: essage for incorrect LOGIN
@@ -16,7 +16,7 @@ session_start();
 $timezone = "America/Vancouver";
 date_default_timezone_set($timezone);
 
-//DATA ACCESS
+//DATA ACCESS -Riley
 function PDO(){
   $host = 'localhost';
   $port = 8889;
@@ -40,14 +40,14 @@ function PDO(){
 }
 
 
-//LOGIN
+//LOGIN - Riley
 function login(){
   $pdo = PDO();
   if(isset($_POST["l_submit"])){
 
     $employee_id = $_POST['employee_id'];
     $pass = $_POST['password'];
-
+    //to change the login encryption cost
     $P_options = ['cost' => 12];
     $hash = password_hash($pass,PASSWORD_BCRYPT,$P_options);
     $login_statement = $pdo->prepare('SELECT * FROM `users` WHERE `employee_id` = ?');
@@ -71,25 +71,28 @@ function login(){
           $_SESSION['likes'] = $likes;
           $_SESSION['posts'] = $posts;
           $_SESSION['comments'] = $comments;
+          //checking if password needs rehash
     				if(password_needs_rehash($row['password'], PASSWORD_BCRYPT, $P_options)){
     					$login_statement = $pdo->prepare('UPDATE `users` SET `password` = ? WHERE `username` = ?');
     					$login_statement->execute([$hash,$user]);
     			    }
+          // redirect to home if it passes checks
           header('Location: home.php');
     		}else{
-          echo "bad login.";
+          // tell the user to screw off or try again
+          print "Incorrect user or password.";
         }
     	}
     }
   }
 }
 
-//CREATING DATE TIME OBJECT
+//CREATING DATE TIME OBJECT - Riley
 function db_timestamp(){
   return date('Y-m-d H:i:s', time());
 }
 
-//REGISTER
+//REGISTER - Riley
 function register(){
   $pdo = PDO();
   if (isset($_POST["r_submit"])) {
@@ -111,7 +114,7 @@ function register(){
 
 //`employee_id`, `user_name`, `likes`, `comments`, `posts`
 
-//CREATING A CONTACT CARD
+//CREATING A CONTACT CARD - Riley
 function fetch_user(){
   $pdo = PDO();
   $fetch_user_statement = $pdo->prepare('SELECT * FROM `users`');
@@ -120,7 +123,7 @@ function fetch_user(){
   return $row;
 }
 
-//CREATING & FETCHING POSTS
+//CREATING & FETCHING POSTS - Riley
 function create_post(){
 
   // TODO add a try catch for error handling
@@ -137,7 +140,7 @@ function create_post(){
     $create_post_result = $create_post_statement->execute([$author, $body, $date_stamp]);
   }
 }
-//query to get lots of posts with info
+//query to get lots of posts with info - Riley (thanks marvin for the query)
 //select posts.*,users.employee_id from posts left join users on posts.author_id = users.id where SUBSTRING(users.employee_id,1,1) = "M";
 function fetch_post(){
   $pdo = PDO();
@@ -147,6 +150,7 @@ function fetch_post(){
   return $post_row;
 }
 
+// search function for posts related to username - Riley
 function search(){
   if(isset($_POST['search_posts'])){
     $author = htmlspecialchars(mysql_real_escape_string($_POST['search_input']));
@@ -159,6 +163,7 @@ function search(){
   }
 }
 
+//function to add a like based on button click - Riley
 function like(){
   if(isset($_POST['like_submit'])){
     $author = $_SESSION['user_id'];
@@ -171,6 +176,7 @@ function like(){
   }
 }
 
+//function to add comment based on form - Riley
 function comment(){
   if(isset($_POST['comment_send'])){  //this line checks if the comment was sent then does the thing
     $date_stamp = db_timestamp();
