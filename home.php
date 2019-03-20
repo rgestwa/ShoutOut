@@ -1,7 +1,7 @@
 <?php
 include 'methods.php';
 include 'google/google_auth.php';
-
+comment();
  ?>
 <html>
 <head>
@@ -144,6 +144,21 @@ include 'google/google_auth.php';
   <!--- comment div --->
 
   <div class="column comments_view" id="comments_view" style="display:none;">
+
+    <!-- THESE FIELDS WORK FOR COMMENT ENTRY
+    //can be cut and pasted in a modal or in the right hand VIEW
+    //left the classes empty so you can style
+
+    </style>
+    <div>
+      <form method="post">
+      <input type="hidden" name="postId" value="<?php echo $id; ?>">
+      <input name="comment_input" placeholder="COmment here"></input>
+      <button name="comment_send" type="submit" value="comment">comment</button>
+      </form>
+    </div>
+    -->
+
     <div class="postCard template">
       <div class="row">
         <div class="postcolumn">

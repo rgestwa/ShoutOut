@@ -5,6 +5,7 @@
 
 // TODO: essage for incorrect LOGIN
 // TODO: functionality to block user from directly accessing HOME if not logged in
+// TODO:
 
 //manually sets error reporting on in ini get_included_files
 //remove for production!
@@ -156,5 +157,19 @@ function like(){
     $add_like_statement->execute([$upost_id, $author]);
 
   }
+}
 
+function comment(){
+  if(isset($_POST['comment_send'])){  //this line checks if the comment was sent then does the thing
+    $date_stamp = db_timestamp();
+    $body = $_POST['comment_input']; //saves the comment to a var
+    $author = $_SESSION['user_id']; //saves logged in user as comment creator
+    $ass_post = $_POST['postId'];
+
+    $pdo = PDO();  //start PDO object for data transactioning
+
+    $create_comment_statement = $pdo->prepare('INSERT INTO `comments` (author, associated_post, body, time) VALUES (?, ?, ?, ?)');
+    $create_comment_statement->execute([$author,$ass_post, $body,$date_stamp]);
+
+  }
 }
