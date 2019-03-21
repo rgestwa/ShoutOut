@@ -5,6 +5,9 @@ include 'google/google_auth.php';
  ?>
 <html>
 <head>
+<link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 <meta property="og:title" content="SHOUTOut" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="http://localhost:8888/mockproject/home.php" />
@@ -61,6 +64,7 @@ include 'google/google_auth.php';
     <!--- CREATE POST --->
     <form action="" method="post">
       <input class="postInput inline" name="post_input" placeholder="Start typing...">
+      <center><h6 class="pull-right" id="counter">320 characters remaining</h6></center> 
       <input class="inline postSubmit btn btn-lg" name="post_submit" value="Shout!" type="submit">
     </form>
     <?php
@@ -88,6 +92,27 @@ include 'google/google_auth.php';
         <div class="postBody">
           <p><?php echo($s_post['body']); ?><p>
         </div>
+        
+        
+        
+        <!--like, comment, delete, share toobar (inactive)-->   
+        
+        <div class="btn-toolbar">
+      <div class="btn-group">
+          <center>
+          <a href="#" class="btn btn-inverse disabled"><i class="icon-white icon-thumbs-up"></i>
+          </a><a href="#" class="btn btn-inverse disabled"><i class="icon-white icon-heart"></i></a>
+          <a href="#" class="btn btn-inverse disabled"><i class="icon-white icon-share-alt"></i></a>
+          </center>
+      </div>
+      <div class="btn-group">
+      <a href="#" class="btn btn-inverse disabled"><i class="icon-white icon-trash"></i></a>
+      </div>
+        </div>
+        
+        <!------>
+        
+        
         <form id='like_form' method='post'>
           <!-- a hidden input field to get a post variable representing our incrementing post id -->
           <input type="hidden" name="postId" value="<?php echo $id; ?>">

@@ -1,6 +1,7 @@
 <?php
 include 'methods.php';
- ?>
+login();
+?>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -147,9 +148,6 @@ register();
 <input class='form-control pad' name='password' type='password' placeholder="Password">
 <input class='btn btn-lg btn-outline-danger btn-block pad' name='l_submit' type='submit'>
 </form>
-<?php
-login();
- ?>
 </div>
 
 </div>

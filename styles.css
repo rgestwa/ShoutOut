@@ -159,7 +159,7 @@
 }
 
 .loggedInAs{
-	background-image: linear-gradient(to right, #212121,#21212100);
+	background-color: #212121;
 	color: white;
 	border-radius: 6px;
 	height:100%;
@@ -265,12 +265,9 @@ img{
 }
 
 body{
-	margin:0;
-	background-image: linear-gradient(to right, #212121,#21212100),url(assets/homepage2_background.jpeg);
-	background-repeat: no-repeat;
-  background-position: right top;
-  background-attachment: fixed;
-}
+	
+	background-image: #212121;
+    }
 /*
 button {
 	background-color: #A61208;
