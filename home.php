@@ -1,14 +1,15 @@
 <?php
 include 'methods.php';
 include 'google/google_auth.php';
+
 comment();
 like();
  ?>
 <html>
 <head>
 <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
 <meta property="og:title" content="SHOUTOut" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="http://localhost:8888/mockproject/home.php" />
@@ -24,11 +25,48 @@ like();
 <script src="home.js" type="text/javascript"></script>
 </head>
 <body>
+    
+    
+    
+    
+    <!-- Modal-->
+    <div id="uploadModal" class="modal" role="dialog">
+    <div class="modal-dialog" role="document">
 
-<div class="header">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">File upload form</h4>
+      </div>
+      <div class="modal-body">
+        
+        <!-- Form -->
+        <form method='post' id="uploadForm" action='' enctype="multipart/form-data">
+          Select file : <input type='file' name='file' id='file' class='form-control' ><br>
+          <input type='submit' class='btn btn-info' value='Upload' id='upload'>
+        </form>
+
+        <!-- Preview-->
+        <div id='preview'></div>
+      </div>
+    </div>
+  </div>
+</div>
+ 
+  <div class="header">
   <h1 class="inline title">SHOUTout</h1>
 
-  <button class="show_gauth" id="show_gauth">Gear</button>
+
+<!--Upload Photo---Santana-->
+
+<button type="button" class="btn btn-info" id="modalbutton" data-toggle="modal" data-target="#uploadModal">Upload file</button>
+
+
+
+
+
+  <!--<button class="show_gauth" id="show_gauth">Gear</button> -->
 
   <!--- CURRENTLY LOGGED IN AS --->
   <div class="inline loggedInAs">
@@ -178,15 +216,15 @@ like();
 
                  <!-------->
 
-
-
+                 
+                 
                   <!-- contact card ----->
                   <div class="contactCard">
                     <div class="cardrow">
                       <div class="cardcolumn">
                         <div class="">
                           <!--- PROFIE GOES HERE --->
-                          <img class="profilePic" src="assets/profpic.png">
+                          <img class="profilePic" src="assets/profpic.png">      
                         </div>
                       </div>
                       <div class="cardcolumn">

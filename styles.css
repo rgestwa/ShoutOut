@@ -251,21 +251,16 @@ img{
 /* ID STYLES */
 #contain-login{
 	width:50%;
-
-
 }
 
 #contain-signup{
 	width:50%;
-
-
 }
 
-* {
-  box-sizing: border-box;
+.modal{
+    top: 10% !important;
+    left: 50% !important;
+    bottom: auto !important;
+    right: auto !important;
 }
 
-body{
-
-	background-image: #212121;
-    }
