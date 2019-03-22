@@ -17,6 +17,7 @@ date_default_timezone_set($timezone);
 
 //DATA ACCESS -Riley
 function PDO(){
+  try{
   $host = 'localhost';
   $port = 8889;
   $database = 'ShoutOut';
@@ -35,6 +36,11 @@ function PDO(){
   ];
 
   $pdo = new PDO($dsn,$DBusername,$DBpass,$options);
+
+
+}catch(PDOException $error) {
+  echo $sql . "<br>" . $error->getMessage();
+}
   return $pdo;
 }
 
@@ -132,10 +138,10 @@ function create_post(){
 
     $body = $_POST['post_input'];
     $author = $_SESSION['user_id'];
-      
+
     $filter = new filter_profanity();
     $body = $filter->filter_string($body);
-    
+
 
     $pdo = PDO();
 
@@ -195,6 +201,16 @@ function comment(){
   }
 }
 
+function delete(){
+  if(isset($_POST['delete_button'])){
+    $id = $_POST['postId'];
+
+    $pdo = pdo();
+    $create_delete_statement = $pdo->prepare('DELETE FROM `posts` WHERE `id` = ?');
+    $create_delete_statement->execute([$id]);
+  }
+}
+
 
 
 
@@ -206,7 +222,7 @@ class filter_profanity
 {
 	// these characters will be looked for as joining characters between letters in attempt to bypass the filter l-i-k-e t_h_i_s...
 	private $joining_chars = ' _\-\+\.';
-	
+
 	// these words should be the plain ascii version
 	// the code will generate regular expression replacements based on the character arrays below
 	// mis-spellings (like 'fck' instead of 'fuck') will need to be manually added, the code will then generate
@@ -233,7 +249,7 @@ class filter_profanity
 		'vagina',
 		'whore','wank','wanker','whoar',
 	);
-	
+
 	// these characters will replace each letter in a profanity word above in a regex character class
 	private $replacement = array(
 		'a' => 'aªàáâãäåāăąǎȁȃȧᵃḁẚạảₐ⒜ⓐａ4⍺4⁴₄④⑷⒋４₳@',
@@ -264,7 +280,7 @@ class filter_profanity
 		'z' => 'zźżžƶᶻẑẓẕ⒵ⓩｚ2²₂②⑵⒉２',
 		' ' => ' _\-\+\.',
 	);
-	
+
 	/**
 	* return a filtered string
 	* @param string $filter_line the string to be filtered
@@ -282,7 +298,7 @@ class filter_profanity
 		{
 			$regex = '/(\b|[ \t])';
 			$regex_parts = array();
-			
+
 			// it's ok to use strlen & substr here as the input string should only ever be ascii, never multibyte
 			for($i=0; $i<strlen($word); $i++)
 			{
@@ -290,7 +306,7 @@ class filter_profanity
 				$regex_parts[] = "[{$this->replacement[$letter]}]+";
 			}
 			$regex_parts[] = "[{$this->replacement['e']}]*[{$this->replacement['s']}{$this->replacement['d']}]*";
-			
+
 			$regex .= join("[{$this->joining_chars}]*", $regex_parts);
 			$regex .= '(\b|[ \t])/ui';
 			$replacement = (mb_strlen($replace_char))?' '.str_pad('', strlen($word), $replace_char).' ':'';
