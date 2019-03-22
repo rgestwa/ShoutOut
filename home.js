@@ -4,15 +4,15 @@
 
 
 
-    // $("#showComment").click(function(){
-    //
-    //   console.log("click");
-    //
-    //   $("#comments_view").slideDown();
-    //   console.log();
-    //   $("#contact_view").hide();
-    //   $("#gauth_start").hide();
-    //   });
+     // $("#showComment").click(function(){
+     //
+     //  console.log("click");
+     //
+     //
+     //  console.log();
+      // $("#contact_view").hide();
+      // $("#gauth_start").hide();
+      //});
     //
     //   $("#show_gauth").click(function(){
     //     $("#gauth_start").slideDown();
@@ -20,7 +20,8 @@
     //     $("#contact_view").hide();
     //   });
 
-    
+
+
 
       var $posts = $('.posts .postCard');
 

@@ -2,7 +2,7 @@
 include 'methods.php';
 include 'google/google_auth.php';
 comment();
-like(); 
+like();
  ?>
 <html>
 <head>
@@ -129,7 +129,7 @@ like();
         <div class="btn-group">
           <?php
           $classname = "";
-          if($_SESSION['user_id'] == $s_post['author_id']){
+          if($_SESSION['user_id'] == $s_post['author_id'] || $_SESSION['role'] == 66){
 
               $classname = "trashcan";
               }
@@ -270,16 +270,16 @@ like();
     <!-- THESE FIELDS WORK FOR COMMENT ENTRY - Riley
     //can be cut and pasted in a modal or in the right hand VIEW
     //left the classes empty so you can style
+    -->
 
-    </style>
-    <div>
+    <div id="create_comment" style="display:none;">
       <form method="post">
       <input type="hidden" name="postId" value="<?php echo $id; ?>">
-      <input name="comment_input" placeholder="COmment here"></input>
+      <input name="comment_input" placeholder="Comment here"></input>
       <button name="comment_send" type="submit" value="comment">comment</button>
       </form>
     </div>
-    -->
+
 
     <div class="postCard template">
       <div class="row">
