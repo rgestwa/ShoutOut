@@ -2,6 +2,7 @@
 include 'methods.php';
 include 'google/google_auth.php';
 comment();
+like(); 
  ?>
 <html>
 <head>
@@ -123,23 +124,27 @@ comment();
         <form id='like_form' method='post'>
           <!-- a hidden input field to get a post variable representing our incrementing post id -->
           <input type="hidden" name="postId" value="<?php echo $id; ?>">
-        <button class="addLike btn btn-inverse disabled" type="like_submit" name="like_submit"><i class="icon-white icon-thumbs-up"></i> <?php echo($likes); ?></button>
+        <button class="addLike btn btn-inverse disabled" type="submit" id="like_submit" name="like_submit"><i class="icon-white icon-thumbs-up"></i> <?php echo($likes); ?></button>
+        </form>
         <div class="btn-group">
           <?php
           $classname = "";
           if($_SESSION['user_id'] == $s_post['author_id']){
-              
+
               $classname = "trashcan";
               }
             ?>
-        <a href="#" style="display:none;" class="btn btn-inverse disabled <?php echo($classname) ?>"><i class="icon-white icon-trash"></i></a>
-
+            <form id="delete_form" method="post">
+              <input type="hidden" name="postId" value="<?php echo $id; ?>">
+              <button type="submit" style="display:none;" name="delete_button" id="delete_button" class="btn btn-inverse disabled <?php echo($classname) ?>"><i class="icon-white icon-trash"></i></button>
+            </form>
 
         </div>
         <?php like(); ?>
+        <?php delete(); ?>
         <button class="showComment btn btn-inverse disabled"><i class="icon-white icon-heart"></i></button>
 
-        </form>
+
       </div>
       </div>
     </div>
@@ -262,7 +267,7 @@ comment();
 
   <div class="column comments_view" id="comments_view" style="display:none;">
 
-    <!-- THESE FIELDS WORK FOR COMMENT ENTRY
+    <!-- THESE FIELDS WORK FOR COMMENT ENTRY - Riley
     //can be cut and pasted in a modal or in the right hand VIEW
     //left the classes empty so you can style
 

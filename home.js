@@ -20,6 +20,8 @@
     //     $("#contact_view").hide();
     //   });
 
+    
+
       var $posts = $('.posts .postCard');
 
       var $comment_template = $('#comments_view .postCard.template').clone();
@@ -64,19 +66,19 @@
 
 
         });
-      
-      
+
+
       console.log('middle');
-      
-      
-      
+
+
+
       //this is the start of character counting ---Santana
       (function($) {
     /**
 	 * attaches a character counter to each textarea element in the jQuery object
 	 * usage: $("#myTextArea").charCounter(max, settings);
 	 */
-	
+
 	$.fn.charCounter = function (max, settings) {
 		max = max || 100;
 		settings = $.extend({
@@ -87,7 +89,7 @@
 			delay: 0
 		}, settings);
 		var p, timeout;
-		
+
 		function count(el, container) {
 			el = $(el);
 			if (el.val().length > max) {
@@ -107,7 +109,7 @@
 				container.html(settings.format.replace(/%1/, (max - el.val().length)));
 			}
 		};
-		
+
 		function pulse(el, again) {
 			if (p) {
 				window.clearTimeout(p);
@@ -120,7 +122,7 @@
 				p = window.setTimeout(function () { pulse(el) }, 200);
 			};
 		};
-		
+
 		return this.each(function () {
 			var container;
 			if (!settings.container.match(/^<.+>$/)) {
@@ -141,7 +143,7 @@
 				.bind("focus.charCounter", function () { count(this, container); })
 				.bind("mouseover.charCounter", function () { count(this, container); })
 				.bind("mouseout.charCounter", function () { count(this, container); })
-				.bind("paste.charCounter", function () { 
+				.bind("paste.charCounter", function () {
 					var me = this;
 					setTimeout(function () { count(me, container); }, 10);
 				});
@@ -151,14 +153,12 @@
 			count(this, container);
 		});
 	};
-          
-    
+
+
 
     })(jQuery);
 
     $("#postInput").charCounter(320,{container:'#counter'});
     console.log('hello');
-      
+
 });
-
-
