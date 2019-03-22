@@ -67,13 +67,9 @@ comment();
 
     <form action="" method="post">
       <span class="charcounter"><input id="postInput" class="postInput inline" name="post_input" placeholder="Start typing..."></span>
-<<<<<<< HEAD
       <h6 class="pull-right" id="counter">(320 characters remaining)</h6>
       <input class="inline postSubmit btn1" name="post_submit" value="Shout!" type="submit">
-=======
-      <center><h6 class="pull-right" id="counter">(320 characters remaining)</h6></center>
-      <input class="inline postSubmit btn btn-lg" name="post_submit" value="Shout!" type="submit">
->>>>>>> 3bc249af1ef5cb9ca5597fe27f59fc9b5f93a240
+
     </form>
     <br>
     <?php
