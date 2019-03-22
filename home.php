@@ -61,13 +61,13 @@ comment();
 <div class="row">
 
   <div class="column posts" >
-   
+
     <!--- CREATE POST --->
     <!--- character counter--Santana--->
-    
+
     <form action="" method="post">
       <span class="charcounter"><input id="postInput" class="postInput inline" name="post_input" placeholder="Start typing..."></span>
-      <center><h6 class="pull-right" id="counter">(320 characters remaining)</h6></center> 
+      <center><h6 class="pull-right" id="counter">(320 characters remaining)</h6></center>
       <input class="inline postSubmit btn btn-lg" name="post_submit" value="Shout!" type="submit">
     </form>
     <?php
@@ -79,6 +79,7 @@ comment();
       foreach($post_row as $s_post){
         $id = $s_post['id'];
         $likes = $s_post['likes'];
+
     ?>
       <div class="postCard" data-id="<?php echo $id; ?>">
         <div class="row">
@@ -95,11 +96,11 @@ comment();
         <div class="postBody">
           <p><?php echo($s_post['body']); ?><p>
         </div>
-        
-        
-        
-        <!--like, comment, delete, share toobar (inactive)   
-        
+
+
+
+        <!--like, comment, delete, share toobar (inactive)
+
       <div class="btn-toolbar">
       <div class="btn-group">
           <center>
@@ -112,9 +113,9 @@ comment();
       <a href="#" class="btn btn-inverse disabled"><i class="icon-white icon-trash"></i></a>
       </div>
       </div>
-        
+
         <!---Santana--->
-        
+
         <div class="btn-toolbar">
       <div class="btn-group">
         <form id='like_form' method='post'>
@@ -122,11 +123,20 @@ comment();
           <input type="hidden" name="postId" value="<?php echo $id; ?>">
         <button class="addLike btn btn-inverse disabled" type="like_submit" name="like_submit"><i class="icon-white icon-thumbs-up"></i> <?php echo($likes); ?></button>
         <div class="btn-group">
-        <a href="#" class="btn btn-inverse disabled"><i class="icon-white icon-trash"></i></a>
+          <?php
+          $classname = "";
+          if($_SESSION['user_id'] == $s_post['author_id']){
+              
+              $classname = "trashcan";
+              }
+            ?>
+        <a href="#" style="display:none;" class="btn btn-inverse disabled <?php echo($classname) ?>"><i class="icon-white icon-trash"></i></a>
+
+
         </div>
         <?php like(); ?>
         <button class="showComment btn btn-inverse disabled"><i class="icon-white icon-heart"></i></button>
-        
+
         </form>
       </div>
       </div>
@@ -141,11 +151,11 @@ comment();
 
   <!---search bar Santana--->
      <form action="" method="GET">
-        <input id="search" type="text" name="search" placeholder="Type here">
+        <input id="search" type="text" name="search" placeholder="Search Users">
         <input id="submit" type="submit" value="Search">
      </form>
-     
-     
+
+
      <?php
           if (isset($_GET['search']))
           {
@@ -154,11 +164,11 @@ comment();
               $statement = $pdo->prepare("SELECT * FROM `users` where `employee_id` like ? or `user_name` like ? ORDER BY `employee_id` ASC");
               $statement->execute([$search,$search]);
               $results = $statement->fetchAll();
-              
+
               foreach ($results as $user)
               {
                   ?>
-     
+
                  <!-------->
 
 
@@ -193,25 +203,25 @@ comment();
                   </div>
                 <?php
                   }
-                
+
               }
-          
-          
-              
+
+
+
       ?>
-   
-   
+
+
     <?php
       /*
       $row = fetch_user();
       foreach($row as $user){
     ?>
-     
-     
+
+
      <!-------->
-     
-     
-     
+
+
+
       <!-- contact card ----->
       <div class="contactCard">
         <div class="cardrow">

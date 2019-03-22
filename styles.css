@@ -239,6 +239,10 @@
   right: 0;
 }
 
+.trashcan{
+  display:block!important;
+}
+
 img{
   width: 80px;
 }
@@ -265,7 +269,7 @@ img{
 }
 
 body{
-	
+
 	background-image: #212121;
     }
 /*
