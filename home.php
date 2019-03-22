@@ -61,10 +61,13 @@ comment();
 <div class="row">
 
   <div class="column posts" >
+   
     <!--- CREATE POST --->
+    <!--- character counter--Santana--->
+    
     <form action="" method="post">
-      <input class="postInput inline" name="post_input" placeholder="Start typing...">
-      <center><h6 class="pull-right" id="counter">320 characters remaining</h6></center> 
+      <span class="charcounter"><input id="postInput" class="postInput inline" name="post_input" placeholder="Start typing..."></span>
+      <center><h6 class="pull-right" id="counter">(320 characters remaining)</h6></center> 
       <input class="inline postSubmit btn btn-lg" name="post_submit" value="Shout!" type="submit">
     </form>
     <?php
@@ -95,9 +98,9 @@ comment();
         
         
         
-        <!--like, comment, delete, share toobar (inactive)-->   
+        <!--like, comment, delete, share toobar (inactive)   
         
-        <div class="btn-toolbar">
+      <div class="btn-toolbar">
       <div class="btn-group">
           <center>
           <a href="#" class="btn btn-inverse disabled"><i class="icon-white icon-thumbs-up"></i>
@@ -108,19 +111,26 @@ comment();
       <div class="btn-group">
       <a href="#" class="btn btn-inverse disabled"><i class="icon-white icon-trash"></i></a>
       </div>
-        </div>
+      </div>
         
-        <!------>
+        <!---Santana--->
         
-        
+        <div class="btn-toolbar">
+      <div class="btn-group">
         <form id='like_form' method='post'>
           <!-- a hidden input field to get a post variable representing our incrementing post id -->
           <input type="hidden" name="postId" value="<?php echo $id; ?>">
-        <button class="addLike inline btn" type="like_submit" name="like_submit">Likes: <?php echo($likes); ?></button>
-        </form>
+        <button class="addLike btn btn-inverse disabled" type="like_submit" name="like_submit"><i class="icon-white icon-thumbs-up"></i> <?php echo($likes); ?></button>
+        <div class="btn-group">
+        <a href="#" class="btn btn-inverse disabled"><i class="icon-white icon-trash"></i></a>
+        </div>
         <?php like(); ?>
-        <button class="showComment inline btn">Comment</button>
+        <button class="showComment btn btn-inverse disabled"><i class="icon-white icon-heart"></i></button>
+        
+        </form>
       </div>
+      </div>
+    </div>
     <?php
       }
      ?>
@@ -129,10 +139,79 @@ comment();
 
   <div class="column" id="contact_view">
 
+  <!---search bar Santana--->
+     <form action="" method="GET">
+        <input id="search" type="text" name="search" placeholder="Type here">
+        <input id="submit" type="submit" value="Search">
+     </form>
+     
+     
+     <?php
+          if (isset($_GET['search']))
+          {
+             $pdo = PDO();
+              $search = '%'.$_GET['search'].'%';
+              $statement = $pdo->prepare("SELECT * FROM `users` where `employee_id` like ? or `user_name` like ? ORDER BY `employee_id` ASC");
+              $statement->execute([$search,$search]);
+              $results = $statement->fetchAll();
+              
+              foreach ($results as $user)
+              {
+                  ?>
+     
+                 <!-------->
+
+
+
+                  <!-- contact card ----->
+                  <div class="contactCard">
+                    <div class="cardrow">
+                      <div class="cardcolumn">
+                        <div class="">
+                          <!--- PROFIE GOES HERE --->
+                          <img class="profilePic" src="assets/profpic.png">
+                        </div>
+                      </div>
+                      <div class="cardcolumn">
+                        <p><?php echo('Likes: '.$user['likes'])?></p>
+                        <p><?php echo('Comments: '.$user['comments'])?></p>
+                      </div>
+                      <?php if($user['department'] == 'Research&Development'){
+                        $code = 'green';
+                      }else if($user['department'] == 'Sales&Marketing'){
+                        $code = 'blue';
+                      }else{
+                        $code = 'red';
+                      } ?>
+                      <div class="cardcolumn">
+                        <div class="colorBar" style="border-left:5px solid <?php echo($code); ?>">
+                          <p><?php echo('@'.$user['user_name'])?></p>
+                          <p><?php echo($user['department'])?></p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                <?php
+                  }
+                
+              }
+          
+          
+              
+      ?>
+   
+   
     <?php
+      /*
       $row = fetch_user();
       foreach($row as $user){
     ?>
+     
+     
+     <!-------->
+     
+     
+     
       <!-- contact card ----->
       <div class="contactCard">
         <div class="cardrow">
@@ -163,6 +242,7 @@ comment();
       </div>
     <?php
       }
+      */
      ?>
   </div>
 

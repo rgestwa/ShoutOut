@@ -1,6 +1,5 @@
 <?php
 // TODO: view post button on contact card
-// TODO: search users functionality - ready to test
 // TODO: admin can edit posts
 
 // TODO: essage for incorrect LOGIN
@@ -152,17 +151,17 @@ function fetch_post(){
 }
 
 // search function for posts related to username - Riley
-function search(){
-  if(isset($_POST['search_posts'])){
-    $author = htmlspecialchars(mysql_real_escape_string($_POST['search_input']));
-
-    $pdo = PDO();
-    $search_post_statement = $pdo->prepare('SELECT `posts`.*, `users`.`employee_id`, `users`.`user_name` FROM `posts` LEFT JOIN `users` ON `posts`.`author_id` = `users`.`id` WHERE `user_name` = ? ORDER BY `post_time` DESC;');
-    $search_post_statement->execute([$author]);
-    $search_result = $fetch_post_statement->fetchall();
-    return $search_result;
-  }
-}
+//function search(){
+//  if(isset($_POST['search_posts'])){
+//    $author = htmlspecialchars(mysql_real_escape_string($_POST['search_input']));
+//
+//    $pdo = PDO();
+//    $search_post_statement = $pdo->prepare('SELECT `posts`.*, `users`.`employee_id`, `users`.`user_name` FROM `posts` LEFT JOIN `users` ON `posts`.`author_id` = `users`.`id` WHERE `user_name` = ? ORDER BY `post_time` DESC;');
+//    $search_post_statement->execute([$author]);
+//    $search_result = $fetch_post_statement->fetchall();
+//    return $search_result;
+//  }
+//}
 
 //function to add a like based on button click - Riley
 function like(){
@@ -197,7 +196,7 @@ function comment(){
 
 
 
-/**profanity filtering
+/**profanity filtering---Santana
  * filter class to replace profanity with safe characters
  */
 class filter_profanity

@@ -66,9 +66,11 @@
         });
       
       
+      console.log('middle');
       
       
-      //this is the start of character counting
+      
+      //this is the start of character counting ---Santana
       (function($) {
     /**
 	 * attaches a character counter to each textarea element in the jQuery object
@@ -91,7 +93,7 @@
 			if (el.val().length > max) {
 			    el.val(el.val().substring(0, max));
 			    if (settings.pulse && !p) {
-			    	pulse(tcontainer, true);
+			    	pulse(container, true);
 			    };
 			};
 			if (settings.delay > 0) {
@@ -123,11 +125,11 @@
 			var container;
 			if (!settings.container.match(/^<.+>$/)) {
 				// use existing element to hold counter message
-				tcontainer = $(settings.container);
+				container = $(settings.container);
 			} else {
 				// append element to hold counter message (clean up old element first)
 				$(this).next("." + settings.classname).remove();
-				tcontainer = $(settings.container)
+				container = $(settings.container)
 								.insertAfter(this)
 								.addClass(settings.classname);
 			}
@@ -144,17 +146,19 @@
 					setTimeout(function () { count(me, container); }, 10);
 				});
 			if (this.addEventListener) {
-				this.addEventListener('input', function () { count(this, tcontainer); }, false);
+				this.addEventListener('input', function () { count(this, container); }, false);
 			};
 			count(this, container);
 		});
 	};
+          
+    
 
-})(jQuery);
+    })(jQuery);
 
-$(function() {
-    $(".counted").charCounter(320,{container: "#counter"});
-});
+    $("#postInput").charCounter(320,{container:'#counter'});
+    console.log('hello');
+      
 });
 
 
