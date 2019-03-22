@@ -132,6 +132,9 @@ function create_post(){
 
     $body = $_POST['post_input'];
     $author = $_SESSION['user_id'];
+      
+    $filter = new filter_profanity();
+    $body = $filter->filter_string($body);
     
 
     $pdo = PDO();
