@@ -22,7 +22,7 @@
 
 
 
-
+//made by riley
       var $posts = $('.posts .postCard');
 
       var $comment_template = $('#comments_view .postCard.template').clone();
@@ -161,8 +161,8 @@
 
     $("#postInput").charCounter(320,{container:'#counter'});
 <<<<<<< HEAD
-    
- 
+
+
       $('#uploadForm').on('submit',function(){
 
         var fd = new FormData();
@@ -188,7 +188,7 @@
         return false;
       });
 
-      
+
 });
 
 =======
