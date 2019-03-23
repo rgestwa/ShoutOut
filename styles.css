@@ -1,6 +1,6 @@
 /* CLASS STYLES */
 
-/* created by riley */
+/* Created by Riley and Santana */
 
 .content{
   height:1500px!important;
@@ -250,9 +250,13 @@
 img{
   width: 80px;
 }
+
+
 /* END CLASS STYLES */
 /*--------------------*/
 /* ID STYLES */
+
+
 #contain-login{
 	width:50%;
 }

@@ -155,75 +155,76 @@ input[type=password]:focus {
 
   </style>
 
-	</head>
-<body>
-  <video autoplay muted loop id="myVideo">
-  <source src="assets/stockvid.mp4" type="video/mp4">
-  Your browser does not support HTML5 video.
-   </video>
-   <div class="header">
-   </div>
+   </head>
+   
+   <body>
+   
+       <video autoplay muted loop id="myVideo">
+       <source src="assets/stockvid.mp4" type="video/mp4">
+       </video>
+       <div class="header">
+       </div>
 
-	<!--- THE SIGNUP FORM --->
-<div class="content">
-<div class="row">
-<div class='text-center column leftdiv'>
-  <div class="inputHolder">
-<div id='contain-greet'>
-<h1 id='greeting'>Hey there!</h1>
-<p>Sign up and start shouting out to your coworkers</p>
-</div>
+        <!--- THE SIGNUP FORM --->
+        <div class="content">
+        <div class="row">
+        <div class='text-center column leftdiv'>
+        <div class="inputHolder">
+        <div id='contain-greet'>
+        <h1 id='greeting'>Hey there!</h1>
+        <p>Sign up and start shouting out to your coworkers</p>
+        </div>
 
-<!--- ADD IN A FUNCTION TO
-      ADD DISPLAY NAME THROUGH GUI
+    <!--- ADD IN A FUNCTION TO
+          ADD DISPLAY NAME THROUGH GUI
 
- --->
-<form id='signup' method="post">
-<input class='form-control pad' name='username' type='text' placeholder="Displayname">
-<input class='form-control pad' name='password' type='password' placeholder="Password">
-<input class='form-control pad' name='employee_id' type='text' placeholder="Employee ID">
-<select class="form-control pad" name='department' placeholder='Department'>
-  <option value="Research&Develoment">Research & Develoment</option>
-  <option value="Sales&Marketing">Sales & Marketing</option>
-  <option value="Administration">Administration</option>
-</select>
-<input class='btn btn-lg btn-outline-danger btn-block pad' name='r_submit' type='submit'>
-</form>
-<?php
-register();
- ?>
- </div>
-</div>
+     --->
+        <form id='signup' method="post">
+        <input class='form-control pad' name='username' type='text' placeholder="Displayname">
+        <input class='form-control pad' name='password' type='password' placeholder="Password">
+        <input class='form-control pad' name='employee_id' type='text' placeholder="Employee ID">
+        <select class="form-control pad" name='department' placeholder='Department'>
+          <option value="Research&Develoment">Research & Develoment</option>
+          <option value="Sales&Marketing">Sales & Marketing</option>
+          <option value="Administration">Administration</option>
+        </select>
+        <input class='btn btn-lg btn-outline-danger btn-block pad' name='r_submit' type='submit'>
+        </form>
+    
+    <?php
+    register();
+     ?>
+    </div>
+    </div>
 
 
 	<!--- THE LOGIN FORM --->
-<div class='text-center column'>
-  <div class="inputHolder">
-<h1>SHOUTout</h1>
-<h5>For ConnectXYZ</h5>
-<form id='login' method='post'>
-<input class='form-control pad' name='employee_id' type='text' placeholder="Employee Id">
-<input class='form-control pad' name='password' type='password' placeholder="Password">
-<input class='btn btn-lg btn-outline-danger btn-block pad' name='l_submit' type='submit'>
-</form>
-</div>
-<div onload="qr()" class="inputHolder">
-	<?php google(); ?>
+    <div class='text-center column'>
+      <div class="inputHolder">
+    <h1>SHOUTout</h1>
+    <h5>For ConnectXYZ</h5>
+    <form id='login' method='post'>
+    <input class='form-control pad' name='employee_id' type='text' placeholder="Employee Id">
+    <input class='form-control pad' name='password' type='password' placeholder="Password">
+    <input class='btn btn-lg btn-outline-danger btn-block pad' name='l_submit' type='submit'>
+    </form>
+    </div>
+    <div onload="qr()" class="inputHolder">
+        <?php google(); ?>
 
-	<h1>Google Auth</h1>
-	<div class="form_style">
-<form id="form" method="post">
-<input name="secret" placeholder="enter your secrets..." type="password">
-<input name="submit" value="Let me in" type="submit">
-</form>
-</div>
+        <h1>Google Authentication</h1>
+        <div class="form_style">
+    <form id="form" method="post">
+    <input name="secret" placeholder="enter your secrets..." type="password">
+    <input name="submit" value="Let me in" type="submit">
+    </form>
+    </div>
 
-</div>
-</div>
+    </div>
+    </div>
 
-</div>
-</div>
-</div>
+    </div>
+    </div>
 
-</body>
-</html>
+    </body>
+    </html>

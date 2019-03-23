@@ -63,7 +63,4 @@ if(in_array($file_extension,$image_ext)){
 }
 
 echo $response;
-
- 
-
 ?>

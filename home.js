@@ -160,13 +160,7 @@
     })(jQuery);
 
     $("#postInput").charCounter(320,{container:'#counter'});
-<<<<<<< HEAD
- 
-=======
-<<<<<<< HEAD
 
-
->>>>>>> cddbf65e56aba6dcc0fb62a950875bd6ba4f7fb5
       $('#uploadForm').on('submit',function(){
 
         var fd = new FormData();
@@ -191,8 +185,5 @@
         });
         return false;
       });
-
-
 });
 
-});

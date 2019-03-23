@@ -24,19 +24,8 @@ like();
 <script src="home.js" type="text/javascript"></script>
 </head>
 <body>
-<<<<<<< HEAD
-    
-    
-    
-    
-    <!-- Upload Photo Modal----Santana-->
-=======
-
-
-
 
     <!-- Modal-->
->>>>>>> cddbf65e56aba6dcc0fb62a950875bd6ba4f7fb5
     <div id="uploadModal" class="modal" role="dialog">
     <div class="modal-dialog" role="document">
 
@@ -44,7 +33,7 @@ like();
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">File upload form</h4>
+        <h4 class="modal-title">File Upload Form</h4>
       </div>
       <div class="modal-body">
 
@@ -65,12 +54,7 @@ like();
   <h1 class="inline title">SHOUTout</h1>
 
 
-<!--Upload Photo---Santana-->
-
-<button type="button" class="btn btn-info" id="modalbutton" data-toggle="modal" data-target="#uploadModal">Upload file</button>
-
-
-  <!--<button class="show_gauth" id="show_gauth">Gear</button> -->
+<!----Santana-->
 
   <!--- CURRENTLY LOGGED IN AS --->
   <div class="inline loggedInAs">
@@ -82,6 +66,10 @@ like();
         </div>
       </div>
 
+   <!--Upload File-->
+    <button type="button" class="btn btn-info" id="modalbutton" data-toggle="modal" data-target="#uploadModal">Upload file</button>
+     
+     
       <?php if($_SESSION['department'] == 'Research&Development'){
         $code = 'green';
       }else if($_SESSION['department'] == 'Sales&Marketing'){
@@ -149,30 +137,14 @@ like();
         </div>
 
 
-
-        <!--like, comment, delete, share toobar (inactive)
-
-      <div class="btn-toolbar">
-      <div class="btn-group">
-          <center>
-          <a href="#" class="btn btn-inverse disabled"><i class="icon-white icon-thumbs-up"></i>
-          </a><a href="#" class="btn btn-inverse disabled"><i class="icon-white icon-heart"></i></a>
-          <a href="#" class="btn btn-inverse disabled"><i class="icon-white icon-share-alt"></i></a>
-          </center>
-      </div>
-      <div class="btn-group">
-      <a href="#" class="btn btn-inverse disabled"><i class="icon-white icon-trash"></i></a>
-      </div>
-      </div>
-
-        <!---like, comment, delete toolbar---Santana--->
+        <!---Like, Comment, Delete---Santana--->
 
         <div class="btn-toolbar">
-      <div class="btn-group">
+        <div class="btn-group">
         <form id='like_form' method='post'>
           <!-- a hidden input field to get a post variable representing our incrementing post id -->
-          <input type="hidden" name="postId" value="<?php echo $id; ?>">
-        <button class="addLike btn btn-inverse disabled" type="submit" id="like_submit" name="like_submit"><i class="icon-white icon-thumbs-up"></i> <?php echo($likes); ?></button>
+        <input type="hidden" name="postId" value="<?php echo $id; ?>">
+        <button class="addLike btn btn-default btn-sm" type="submit" id="like_submit" name="like_submit"><i class="icon-white icon-thumbs-up"></i> <?php echo($likes); ?></button>
         </form>
         <div class="btn-group">
           <?php
@@ -190,7 +162,7 @@ like();
         </div>
         <?php like(); ?>
         <?php delete(); ?>
-        <button class="showComment btn btn-inverse disabled"><i class="icon-white icon-heart"></i></button>
+        <button class="showComment btn btn-default btn-sm"><i class="icon-white icon-edit"></i></button>
 
 
       </div>
@@ -234,11 +206,9 @@ like();
                       <div class="cardcolumn">
                         <div class="">
                           <!--- PROFIE GOES HERE --->
-<<<<<<< HEAD
                           <img class="profilePic" src="uploads/">      
-=======
                           <img class="profilePic" src="assets/profpic.png">
->>>>>>> cddbf65e56aba6dcc0fb62a950875bd6ba4f7fb5
+
                         </div>
                       </div>
                       <div class="cardcolumn">
@@ -262,10 +232,7 @@ like();
                   </div>
                 <?php
                   }
-
               }
-
-
 
       ?>
 
@@ -277,11 +244,7 @@ like();
     ?>
 
 
-     <!-------->
-
-
-
-      <!-- contact card ----->
+      <!-- contact card (inactive)----->
       <div class="contactCard">
         <div class="cardrow">
           <div class="cardcolumn">
@@ -328,7 +291,7 @@ like();
       <form method="post">
       <input type="hidden" name="postId" value="<?php echo $id; ?>">
       <input name="comment_input" placeholder="Comment here"></input>
-      <button name="comment_send" type="submit" value="comment">comment</button>
+      <button name="comment_send" type="submit" value="comment">Comment</button>
       </form>
     </div>
 
@@ -351,9 +314,6 @@ like();
       <button class="inline btn">Likes: 14</button>
     </div>
   </div>
-
-
-</div>
 
 
 </body>
