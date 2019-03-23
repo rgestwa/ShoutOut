@@ -68,11 +68,13 @@ function login(){
           $likes = $row['likes'];
           $posts = $row['posts'];
           $comments = $row['comments'];
+          $role = $row['role'];
 
           $_SESSION['user_id'] = $user_id;
           $_SESSION['employee_id'] = $employee_id;
           $_SESSION['username'] = $username;
           $_SESSION['department'] = $department;
+          $_SESSION['role'] = $role;
           $_SESSION['likes'] = $likes;
           $_SESSION['posts'] = $posts;
           $_SESSION['comments'] = $comments;

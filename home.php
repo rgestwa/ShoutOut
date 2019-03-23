@@ -1,9 +1,8 @@
 <?php
 include 'methods.php';
-include 'google/google_auth.php';
 
 comment();
-like(); 
+like();
  ?>
 <html>
 <head>
@@ -25,11 +24,19 @@ like();
 <script src="home.js" type="text/javascript"></script>
 </head>
 <body>
+<<<<<<< HEAD
     
     
     
     
     <!-- Upload Photo Modal----Santana-->
+=======
+
+
+
+
+    <!-- Modal-->
+>>>>>>> cddbf65e56aba6dcc0fb62a950875bd6ba4f7fb5
     <div id="uploadModal" class="modal" role="dialog">
     <div class="modal-dialog" role="document">
 
@@ -40,7 +47,7 @@ like();
         <h4 class="modal-title">File upload form</h4>
       </div>
       <div class="modal-body">
-        
+
         <!-- Form -->
         <form method='post' id="uploadForm" action='' enctype="multipart/form-data">
           Select file : <input type='file' name='file' id='file' class='form-control' ><br>
@@ -53,7 +60,7 @@ like();
     </div>
   </div>
 </div>
- 
+
   <div class="header">
   <h1 class="inline title">SHOUTout</h1>
 
@@ -170,7 +177,7 @@ like();
         <div class="btn-group">
           <?php
           $classname = "";
-          if($_SESSION['user_id'] == $s_post['author_id']){
+          if($_SESSION['user_id'] == $s_post['author_id'] || $_SESSION['role'] == 66){
 
               $classname = "trashcan";
               }
@@ -219,15 +226,19 @@ like();
 
                  <!-------->
 
-                 
-                 
+
+
                   <!-- contact card ----->
                   <div class="contactCard">
                     <div class="cardrow">
                       <div class="cardcolumn">
                         <div class="">
                           <!--- PROFIE GOES HERE --->
+<<<<<<< HEAD
                           <img class="profilePic" src="uploads/">      
+=======
+                          <img class="profilePic" src="assets/profpic.png">
+>>>>>>> cddbf65e56aba6dcc0fb62a950875bd6ba4f7fb5
                         </div>
                       </div>
                       <div class="cardcolumn">
@@ -311,16 +322,16 @@ like();
     <!-- THESE FIELDS WORK FOR COMMENT ENTRY - Riley
     //can be cut and pasted in a modal or in the right hand VIEW
     //left the classes empty so you can style
+    -->
 
-    </style>
-    <div>
+    <div id="create_comment" style="display:none;">
       <form method="post">
       <input type="hidden" name="postId" value="<?php echo $id; ?>">
-      <input name="comment_input" placeholder="COmment here"></input>
+      <input name="comment_input" placeholder="Comment here"></input>
       <button name="comment_send" type="submit" value="comment">comment</button>
       </form>
     </div>
-    -->
+
 
     <div class="postCard template">
       <div class="row">
@@ -341,11 +352,6 @@ like();
     </div>
   </div>
 
-  <div id="gauth_start" class="gauth_start" style="display:none;">
-    <div class="gauth_container">
-      <h1>get started with gauth</h1>
-    </div>
-  </div>
 
 </div>
 

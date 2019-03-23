@@ -1,8 +1,8 @@
 <?php
 include 'methods.php';
-
-//this comes from database
-
+//////
+//made by Riley
+//////
 // $post1comments = [
 //
 //   ['author' => 'marvin', 'comment' => 'a comment'],

@@ -4,15 +4,15 @@
 
 
 
-    // $("#showComment").click(function(){
-    //
-    //   console.log("click");
-    //
-    //   $("#comments_view").slideDown();
-    //   console.log();
-    //   $("#contact_view").hide();
-    //   $("#gauth_start").hide();
-    //   });
+     // $("#showComment").click(function(){
+     //
+     //  console.log("click");
+     //
+     //
+     //  console.log();
+      // $("#contact_view").hide();
+      // $("#gauth_start").hide();
+      //});
     //
     //   $("#show_gauth").click(function(){
     //     $("#gauth_start").slideDown();
@@ -20,8 +20,9 @@
     //     $("#contact_view").hide();
     //   });
 
-    
 
+
+//made by riley
       var $posts = $('.posts .postCard');
 
       var $comment_template = $('#comments_view .postCard.template').clone();
@@ -159,7 +160,13 @@
     })(jQuery);
 
     $("#postInput").charCounter(320,{container:'#counter'});
+<<<<<<< HEAD
  
+=======
+<<<<<<< HEAD
+
+
+>>>>>>> cddbf65e56aba6dcc0fb62a950875bd6ba4f7fb5
       $('#uploadForm').on('submit',function(){
 
         var fd = new FormData();
@@ -185,7 +192,7 @@
         return false;
       });
 
-      
+
 });
 
 });
