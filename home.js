@@ -159,8 +159,6 @@
     })(jQuery);
 
     $("#postInput").charCounter(320,{container:'#counter'});
-<<<<<<< HEAD
-    
  
       $('#uploadForm').on('submit',function(){
 
@@ -189,9 +187,5 @@
 
       
 });
-
-=======
-    console.log('hello');
->>>>>>> c6efe3aa72fc76e227033f9fb9b36c10691a3562
 
 });

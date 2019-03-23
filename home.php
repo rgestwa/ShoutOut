@@ -29,7 +29,7 @@ like();
     
     
     
-    <!-- Modal-->
+    <!-- Upload Photo Modal----Santana-->
     <div id="uploadModal" class="modal" role="dialog">
     <div class="modal-dialog" role="document">
 
@@ -61,9 +61,6 @@ like();
 <!--Upload Photo---Santana-->
 
 <button type="button" class="btn btn-info" id="modalbutton" data-toggle="modal" data-target="#uploadModal">Upload file</button>
-
-
-
 
 
   <!--<button class="show_gauth" id="show_gauth">Gear</button> -->
@@ -116,15 +113,21 @@ like();
     ?>
     <!--- POST VIEW --->
     <?php
-      $post_row = fetch_post();
-      foreach($post_row as $s_post){
-        $id = $s_post['id'];
-        $likes = $s_post['likes'];
+      
+      
+    //----connecting upload with user------  
+    //  $post_row = fetch_post();
+    //  foreach($post_row as $s_post){
+    //    $id = $s_post['id'];
+    //    $likes = $s_post['likes'];
+    //    $pic = $s_post['profile_pic'];
+          
 
     ?>
       <div class="postCard" data-id="<?php echo $id; ?>">
         <div class="row">
           <div class="postcolumn">
+<!--     <img style="float:left; margin-left:5%;" src="assets/<?php echo($pic) ?>.png">-->
             <img style="float:left; margin-left:5%;" src="assets/profpic.png">
           </div>
           <div class="postcolumn">
@@ -155,7 +158,7 @@ like();
       </div>
       </div>
 
-        <!---Santana--->
+        <!---like, comment, delete toolbar---Santana--->
 
         <div class="btn-toolbar">
       <div class="btn-group">
@@ -224,7 +227,7 @@ like();
                       <div class="cardcolumn">
                         <div class="">
                           <!--- PROFIE GOES HERE --->
-                          <img class="profilePic" src="assets/profpic.png">      
+                          <img class="profilePic" src="uploads/">      
                         </div>
                       </div>
                       <div class="cardcolumn">
