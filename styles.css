@@ -252,6 +252,14 @@ img{
 }
 
 
+body{
+    background-image: url(https://images.unsplash.com/photo-1470790376778-a9fbc86d70e2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=649&q=80);
+    background-repeat: no-repeat;
+    width: 100%;
+}
+
+
+
 /* END CLASS STYLES */
 /*--------------------*/
 /* ID STYLES */
