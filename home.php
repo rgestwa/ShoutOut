@@ -1,6 +1,5 @@
 <?php
 include 'methods.php';
-include 'google/google_auth.php';
 
 comment();
 like();
@@ -25,10 +24,10 @@ like();
 <script src="home.js" type="text/javascript"></script>
 </head>
 <body>
-    
-    
-    
-    
+
+
+
+
     <!-- Modal-->
     <div id="uploadModal" class="modal" role="dialog">
     <div class="modal-dialog" role="document">
@@ -40,7 +39,7 @@ like();
         <h4 class="modal-title">File upload form</h4>
       </div>
       <div class="modal-body">
-        
+
         <!-- Form -->
         <form method='post' id="uploadForm" action='' enctype="multipart/form-data">
           Select file : <input type='file' name='file' id='file' class='form-control' ><br>
@@ -53,7 +52,7 @@ like();
     </div>
   </div>
 </div>
- 
+
   <div class="header">
   <h1 class="inline title">SHOUTout</h1>
 
@@ -216,15 +215,15 @@ like();
 
                  <!-------->
 
-                 
-                 
+
+
                   <!-- contact card ----->
                   <div class="contactCard">
                     <div class="cardrow">
                       <div class="cardcolumn">
                         <div class="">
                           <!--- PROFIE GOES HERE --->
-                          <img class="profilePic" src="assets/profpic.png">      
+                          <img class="profilePic" src="assets/profpic.png">
                         </div>
                       </div>
                       <div class="cardcolumn">
@@ -338,11 +337,6 @@ like();
     </div>
   </div>
 
-  <div id="gauth_start" class="gauth_start" style="display:none;">
-    <div class="gauth_container">
-      <h1>get started with gauth</h1>
-    </div>
-  </div>
 
 </div>
 

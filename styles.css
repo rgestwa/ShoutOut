@@ -2,6 +2,10 @@
 
 /* :) */
 
+.content{
+  height:1500px!important;
+}
+
 .inline{
   display:inline-block;
 }
@@ -263,4 +267,3 @@ img{
     bottom: auto !important;
     right: auto !important;
 }
-
